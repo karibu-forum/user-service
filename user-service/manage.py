@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from hashing_service.commands import cli
+from user_service.commands import cli
 
 
 if __name__ == '__main__':
