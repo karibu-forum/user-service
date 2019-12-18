@@ -12,13 +12,13 @@ class User(BaseModelMixin, Base):
     __tablename__ = 'user'
 
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    email = Column(Text, unique=True)
-    password = Column(Text)
+    email = Column(Text, unique=True, nullable=False)
+    password = Column(Text, nullable=False)
 
     email_verified_at = Column(UTCDateTime)
     password_updated_at = Column(UTCDateTime)
 
-    user_name = Column(Text, unique=True)
+    username = Column(Text, unique=True, nullable=False)
     deactivated_at = Column(UTCDateTime)
     last_login_time = Column(UTCDateTime)
 

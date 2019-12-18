@@ -1,3 +1,3 @@
-from user_service.app.worker import app
+from user_service.app.worker import celery
 
-task = app.task
+task = celery.task

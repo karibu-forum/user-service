@@ -16,13 +16,13 @@ celery_config = dict(
 )
 
 
-app = Celery(
+celery = Celery(
     'celery',
     broker='redis://redis:6379/0',
     include=include_modules
 )
 
-app.conf.update(**celery_config)
+celery.conf.update(**celery_config)
 @task_postrun.connect
 def task_postrun_handler(sender=None, headers=None, body=None, **kwargs):
     from user_service.db.session import get_session

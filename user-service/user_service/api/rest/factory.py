@@ -20,8 +20,8 @@ def create_app(force=False):
     app = Flask(__name__, instance_relative_config=True)
     app.config['TESTING'] = False
 
-    from user_service.api.rest.user import user_blueprint
-    app.register_blueprint(user_blueprint)
+    from user_service.api.rest.user import user_api
+    app.register_blueprint(user_api)
 
     @app.before_request
     def request_check_api_key():
@@ -30,25 +30,14 @@ def create_app(force=False):
 
         if request.path in unauthenticated_endpoints:
             return
-
-        # logger.debug('Received request: %s', request.path)
-        # auth_header = request.headers.get('Authorization')
-        # if auth_header:
-        #     m = token_regex.match(auth_header)
-        #     if m:
-        #         token = m.group(1)
-        #         if token in config.AUTHORIZED_API_KEYS:
-        #             # we are OK
-        #             return
-
+        # TODO add api key authorization here
         abort(401)
 
-    # TODO understand this
-    # @app.errorhandler(exceptions.APIException)
-    # def handle_invalid_usage(error):
-    #     response = jsonify(error.to_dict())
-    #     response.status_code = error.status_code
-    #     return response
+    @app.errorhandler(exceptions.APIException)
+    def handle_invalid_usage(error):
+        response = jsonify(error.to_dict())
+        response.status_code = error.status_code
+        return response
 
     @app.route('/health')
     def health():
