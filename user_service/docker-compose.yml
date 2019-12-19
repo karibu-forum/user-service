@@ -10,7 +10,7 @@ services:
       - 8080:3000
     environment:
       - APP_ENV=development
-      - DATABASE_URL=postgres://root:password@db:5432/user_service  # poor database name here...
+      - DATABASE_URL=postgres://root:password@db:5432/karibu_user  # poor database name here...
     depends_on:  
       - db
       - redis
@@ -44,4 +44,4 @@ services:
       - DEVELOP
       - AUTORELOAD
       - APP_ENV=development
-      - DATABASE_URL=postgres://root:password@db:5432/user_service
+      - DATABASE_URL=postgres://root:password@db:5432/karibu_user
