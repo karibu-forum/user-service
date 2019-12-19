@@ -24,7 +24,7 @@ services:
       - POSTGRES_USER=root
       - POSTGRES_PASSWORD=password
     volumes:
-      - ~/.postgres_data/placeholder_user_service:/var/lib/postgresql/data:delegated
+      - ~/.postgres_data/karibu_user_service:/var/lib/postgresql/data:delegated
     ports:
       - 9001:5432
 

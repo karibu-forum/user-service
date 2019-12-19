@@ -1,4 +1,4 @@
-from user_service.exceptions import BaseException
+from user_service.lib.exceptions import BaseException
 
 
 class APIException(BaseException):
