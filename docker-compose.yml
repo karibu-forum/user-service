@@ -7,7 +7,7 @@ services:
     volumes:
       - $PWD:/home/app:delegated
     ports:
-      - 8080:3000
+      - 5000:3000
     environment:
       - APP_ENV=development
       - DATABASE_URL=postgres://root:password@db:5432/karibu_user  # poor database name here...
