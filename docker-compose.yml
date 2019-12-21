@@ -1,6 +1,7 @@
 version: '3.7'
 services:
   web:
+    container_name: user_service_web
     build:
       context: .
       dockerfile: Dockerfile
