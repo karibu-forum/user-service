@@ -1,10 +1,12 @@
 import re
 
-from password_strength import PasswordPolicy
+# from password_strength import PasswordPolicy
 from passlib.context import CryptContext
 
+from user_service.service.authentication.exceptions import PasswordStrengthError
 
-PASSWORD_SCHEMES = ["bcrypt"]
+
+PASSWORD_SCHEMES = ["argon2"]
 MIN_PASSWORD_LENGTH = 10
 crypt_context = CryptContext(schemes=PASSWORD_SCHEMES)
 
