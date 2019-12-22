@@ -5,7 +5,7 @@ from user_service import app
 # import alembic.config
 
 
-DB_NAME = 'user_service'
+DB_NAME = 'karibu_user'
 
 @click.group()
 def db():
