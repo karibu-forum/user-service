@@ -1,8 +1,8 @@
 from sqlalchemy.sql import exists
 
-from entrust_user.db import get_session, session_commit
-from entrust_user.db.models import User
-from entrust_user.db.repository.exceptions import (
+from user_service.db.session import get_session, session_commit
+from user_service.db.models import User
+from user_service.db.repository.exceptions import (
     CreateUserError, UpdateUserError, UpdateUserNotFoundError, UserNotFound,
 )
 from user_service.db.repository.utils import validate_write_fields, set_write_fields
@@ -13,7 +13,7 @@ def create_user(
     email=None, hashed_password=None, username=None, password_updated_at=None, check_existing_email=True,
     check_existing_username=True
 ):
-    assert email and hashed_password and usernames
+    assert email and hashed_password and username
     session = get_session()
 
     if check_existing_email:
