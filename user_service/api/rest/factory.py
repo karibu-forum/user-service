@@ -21,7 +21,7 @@ def create_app(force=False):
     app.config['TESTING'] = False
 
     from user_service.api.rest.user import user_api
-    app.register_blueprint(user_api)
+    app.register_blueprint(user_api, url_prefix='/v1')
 
     @app.before_request
     def request_check_api_key():
